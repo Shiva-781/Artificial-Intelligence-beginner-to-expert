@@ -52,3 +52,62 @@ Agar first few KB me null byte mil jaye
 Binary file.
 
 Ye fast bhi hai aur kaafi accurate bhi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+remote: warning: See https://gh.io/lfs for more information.
+remote: warning: File Tokenizer_training/Raw_data_cleaning/remove_binary_files/raw_documents/Ek Deewane Ki Deewaniyat.mp4 is 51.83 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+
+ye warning git me push karne per aayi thi
+
+Jo warnings aayi hain unka matlab:
+
+Ek Deewane Ki Deewaniyat.mp4 ka size 51.83 MB hai.
+GitHub isse accept kar leta hai kyunki ye 100 MB se chhoti hai.
+Lekin GitHub recommend karta hai ki 50 MB se badi files ke liye Git LFS use karein.
+Agar MP4 ko repository mein rakhna zaroori nahi hai
+
+Use Git se remove karke .gitignore mein add kar den:
+
+command:
+
+git rm --cached "Tokenizer_training/Raw_data_cleaning/remove_binary_files/raw_documents/Ek Deewane Ki Deewaniyat.mp4"
+
+.gitignore mein:
+
+*.mp4
+
+Phir:
+
+
+command:  
+
+git add .gitignore
+git commit -m "Remove large video and ignore mp4 files"
+git push origin main
+
+
+
+
+Agar MP4 repository ka important part hai
+
+To uske liye Git LFS use karna better rahega, especially agar aage aur bhi large videos, datasets, ya AI model files (.pt, .pth, .h5, .bin) add karne wale hain.
