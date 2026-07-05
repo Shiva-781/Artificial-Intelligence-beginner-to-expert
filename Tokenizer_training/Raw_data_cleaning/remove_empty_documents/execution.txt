@@ -1,0 +1,455 @@
+Step 1 : Project Structure----------------------------------------->
+
+Maan lijiye files me ye data hai.
+
+file1.txt
+Hello Python
+file2.txt
+
+(Empty file)
+
+file3.txt
+Machine Learning
+
+Directory
+
+
+remove_empty_documents/
+│
+├── p1.py
+│
+└── raw_documents/
+      ├── file1.txt
+      ├── file2.txt
+      └── file3.txt
+
+
+
+Step 2 : Run Program--------------------------------------->
+
+Command Prompt
+
+cd project
+
+python remove_empty_documents.py
+
+Python interpreter program ko line-by-line execute karta hai.
+
+Step 3 : Import Module-------------------------------->
+import os
+
+Memory
+
+os module loaded
+
+
+
+Step 4 : Store Folder Path----------------------------->
+INPUT_FOLDER = "raw_documents"
+
+Memory
+
+INPUT_FOLDER
+      │
+      ▼
+"raw_documents"
+
+
+
+Step 5 : Create Empty Lists------------------------------------>
+empty_files = []
+
+non_empty_files = []
+
+Memory
+
+empty_files
+
+↓
+
+[]
+
+non_empty_files
+
+↓
+
+[]
+
+
+
+
+Step 6 : Read Folder--------------------------------------->
+os.listdir(INPUT_FOLDER)
+
+Return
+
+[
+'file1.txt',
+'file2.txt',
+'file3.txt'
+]
+
+Loop start hota hai.
+
+First Iteration---------->
+filename
+
+↓
+
+file1.txt
+Create Path
+filepath = os.path.join(INPUT_FOLDER, filename)
+
+Result
+
+raw_documents/file1.txt
+
+Memory
+
+filepath
+
+↓
+
+raw_documents/file1.txt
+Check File
+os.path.isfile(filepath)
+
+Return
+
+True
+Open File
+with open(filepath,"r",encoding="utf-8") as f:
+
+File successfully open ho gayi.
+
+Read File
+text = f.read()
+
+Memory
+
+text
+
+↓
+
+Hello Python
+Remove Spaces
+text.strip()
+
+Result
+
+Hello Python
+
+Length
+
+len(text.strip())
+
+Return
+
+12
+
+Condition
+
+len(text.strip())==0
+
+Return
+
+False
+
+Else execute
+
+non_empty_files.append(filename)
+
+Memory
+
+non_empty_files
+
+↓
+
+[
+file1.txt
+]
+Second Iteration------------->
+filename
+
+↓
+
+file2.txt
+
+filepath
+
+raw_documents/file2.txt
+
+Open successfully.
+
+Read
+
+text = f.read()
+
+Suppose file bilkul empty hai.
+
+text
+
+↓
+
+""
+
+strip()
+
+text.strip()
+
+Result
+
+""
+
+Length
+
+len("")
+
+Return
+
+0
+
+Condition
+
+len(text.strip())==0
+
+Return
+
+True
+
+Execute
+
+empty_files.append(filename)
+
+Memory
+
+empty_files
+
+↓
+
+[
+file2.txt
+]
+
+
+
+Third Iteration---------->
+filename
+
+↓
+
+file3.txt
+
+Read
+
+Machine Learning
+
+Length
+
+16
+
+Else execute
+
+non_empty_files.append(file3.txt)
+
+Memory
+
+non_empty_files
+
+↓
+
+[
+file1.txt,
+file3.txt
+]
+
+Loop finished.
+
+Memory After Loop
+non_empty_files
+
+↓
+
+[
+file1.txt,
+file3.txt
+]
+
+
+empty_files
+
+↓
+
+[
+file2.txt
+]
+Printing Starts
+print("="*40)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output--------------------------------------------------------->
+
+========================================
+print("NON EMPTY FILES")
+
+Output
+
+NON EMPTY FILES
+
+Loop
+
+for file in non_empty_files:
+
+Iteration 1
+
+file
+
+↓
+
+file1.txt
+
+Print
+
+file1.txt
+
+Iteration 2
+
+file
+
+↓
+
+file3.txt
+
+Print
+
+file3.txt
+
+Blank line
+
+print()
+
+Print
+
+========================================
+EMPTY FILES
+========================================
+
+Loop
+
+for file in empty_files:
+
+Iteration
+
+file
+
+↓
+
+file2.txt
+
+Print
+
+file2.txt
+
+
+
+
+
+
+
+
+Final Output------------------------>
+
+
+========================================
+NON EMPTY FILES
+========================================
+file1.txt
+file3.txt
+
+========================================
+EMPTY FILES
+========================================
+file2.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Complete Execution Flow------------------------------------>
+                Start
+                  │
+                  ▼
+             import os
+                  │
+                  ▼
+INPUT_FOLDER = raw_documents
+                  │
+                  ▼
+Create empty lists
+(empty_files, non_empty_files)
+                  │
+                  ▼
+Read folder using os.listdir()
+                  │
+                  ▼
+Pick first file
+                  │
+                  ▼
+Create filepath
+                  │
+                  ▼
+Is it a file?
+                  │
+          Yes ────┘
+                  ▼
+Open file
+                  │
+                  ▼
+Read file content
+                  │
+                  ▼
+text.strip()
+                  │
+          ┌───────┴────────┐
+          │                │
+      Length == 0      Length > 0
+          │                │
+          ▼                ▼
+Add to empty_files   Add to non_empty_files
+          │                │
+          └───────┬────────┘
+                  ▼
+             Next file
+                  │
+                  ▼
+         All files processed?
+                  │
+                  ▼
+Print non-empty files
+                  │
+                  ▼
+Print empty files
+                  │
+                  ▼
+                 End

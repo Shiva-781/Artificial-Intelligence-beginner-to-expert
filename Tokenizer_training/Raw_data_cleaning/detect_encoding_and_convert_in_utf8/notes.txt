@@ -1,0 +1,43 @@
+Problem
+
+Har text file UTF-8 me nahi hoti.
+
+Example:
+
+UTF-8
+UTF-16
+UTF-32
+ASCII
+Latin-1 (ISO-8859-1)
+Windows-1252
+
+Agar tum directly UTF-8 me read karoge,
+
+with open("file.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+
+to error aa sakta hai:
+
+UnicodeDecodeError:
+'utf-8' codec can't decode byte ...
+
+Isliye pehle encoding detect karte hain, fir UTF-8 me convert karte hain.
+
+
+Industry Pipeline
+
+Production NLP pipelines me encoding handling ka order aksar ye hota hai:
+
+Read Bytes
+      │
+      ▼
+Detect Encoding
+      │
+      ▼
+Decode Text
+      │
+      ▼
+Convert to UTF-8
+      │
+      ▼
+Save Clean File

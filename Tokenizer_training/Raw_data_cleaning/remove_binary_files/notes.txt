@@ -1,0 +1,54 @@
+Topic 3 — Remove Binary Files (remove_binary_files.py)
+Binary File kya hoti hai?
+
+Binary file wo hoti hai jisme human-readable text nahi hota.
+
+Examples:
+
+image.jpg
+photo.png
+video.mp4
+music.mp3
+program.exe
+archive.zip
+document.pdf
+
+Ye files text corpus ka part nahi honi chahiye.
+
+Binary File Detect Karne ke Methods
+
+Industry me mainly 3 methods use hote hain.
+
+Method 1: File Extension (Fast)------------------>
+if filename.endswith(".jpg"):
+    ...
+
+❌ Reliable nahi hai, kyunki koi binary file ka naam abc.txt bhi ho sakta hai.
+
+Method 2: UTF-8 Decode----------------->
+
+Agar file UTF-8 me decode hi nahi hoti
+
+↓
+
+Mostly binary.
+
+Ye better method hai.
+
+Method 3: Null Byte Detection (Industry Standard)------------------>
+
+Text files me normally
+
+\x00
+
+nahi hota.
+
+Binary files me bahut common hota hai.
+
+Agar first few KB me null byte mil jaye
+
+↓
+
+Binary file.
+
+Ye fast bhi hai aur kaafi accurate bhi.

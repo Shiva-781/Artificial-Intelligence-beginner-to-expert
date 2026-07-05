@@ -1,0 +1,463 @@
+remove_corrupted_files/
+│
+├── p1.py
+│
+└── raw_documents/
+|     ├── file1.txt
+|     ├── file2.txt
+|     └── file3.txt
+|__raw_documents2/
+       |__file1.txt
+       |__file2.txt
+       |__file3.txt
+       |__file4.txt
+Step 1: Program Start--------------------->
+
+Python interpreter p1.py ko execute karta hai.
+
+Sabse pehle
+
+import os
+
+os module memory me load ho jata hai.
+
+
+
+Step 2: Folder Path Store Hota Hai--------------------->
+INPUT_FOLDER = "raw_documents"
+
+Memory me
+
+INPUT_FOLDER
+      ↓
+"raw_documents"
+
+
+
+Step 3: Empty Lists Banti Hain--------------------->
+valid_files = []
+corrupted_files = []
+
+Memory
+
+valid_files      = []
+
+corrupted_files  = []
+
+
+
+
+Step 4: os.listdir()------------------->
+
+Suppose folder ke andar ye files hain
+
+raw_documents/
+
+file1.txt
+file2.txt
+file3.txt
+
+Python execute karta hai
+
+os.listdir(INPUT_FOLDER)
+
+Return hota hai
+
+['file1.txt', 'file2.txt', 'file3.txt']
+
+Ab loop start hota hai.
+
+First Iteration
+filename = "file1.txt"
+
+
+
+
+Step 5------------------>
+filepath = os.path.join(INPUT_FOLDER, filename)
+
+Banega
+
+raw_documents/file1.txt
+
+Memory
+
+filename = file1.txt
+
+filepath = raw_documents/file1.txt
+
+
+
+
+
+Step 6------------------->
+os.path.isfile(filepath)
+
+Check karta hai
+
+Kya ye file hai?
+
+Answer
+
+True
+
+Isliye continue nahi chalega.
+
+
+
+
+Step 7-------------------->
+
+Try block execute hoga
+
+with open(filepath,"r",encoding="utf-8") as f:
+
+Suppose file1.txt
+
+Hello
+Python
+
+UTF-8 me perfectly open ho gayi.
+
+
+
+
+
+
+
+Step 8---------------------->
+f.read()
+
+Read hua
+
+Hello
+Python
+
+Koi error nahi.
+
+
+
+
+
+Step 9----------------------->
+valid_files.append(filename)
+
+Memory
+
+valid_files
+
+↓
+
+["file1.txt"]
+
+
+
+Second Iteration------->
+filename
+
+↓
+
+file2.txt
+filepath
+raw_documents/file2.txt
+
+Again
+
+isfile()
+
+↓
+
+True
+
+Open hua
+
+Suppose file me invalid bytes hain
+
+ÿþ
+
+UTF-8 decode nahi kar pa raha.
+
+Python throw karta hai
+
+UnicodeDecodeError
+
+Control direct
+
+except
+
+me chala jata hai.
+
+except
+corrupted_files.append(filename)
+
+Memory
+
+corrupted_files
+
+↓
+
+["file2.txt"]
+
+
+Third Iteration------>
+filename
+
+↓
+
+file3.txt
+
+filepath
+
+raw_documents/file3.txt
+
+Open hua successfully.
+
+valid_files.append("file3.txt")
+
+Memory
+
+valid_files
+
+↓
+
+[
+file1.txt,
+file3.txt
+]
+
+
+Loop Ends
+
+Ab memory
+
+valid_files
+
+↓
+
+[
+"file1.txt",
+"file3.txt"
+]
+
+
+
+
+
+Note:   empty file corrupted nhi hoti
+
+corrupted_files
+
+↓
+
+[
+"file2.txt"
+]
+Printing
+
+Program execute karta hai
+
+print("=" * 40)
+
+
+
+
+
+
+
+
+
+
+Output---------------------------------------------------------------------->
+
+========================================
+print("VALID FILES")
+
+Output
+
+VALID FILES
+
+Again
+
+print("=" * 40)
+
+Output
+
+========================================
+
+Loop
+
+for file in valid_files:
+    print(file)
+
+Iteration 1
+
+file
+
+↓
+
+file1.txt
+
+Print
+
+file1.txt
+
+Iteration 2
+
+file
+
+↓
+
+file3.txt
+
+Print
+
+file3.txt
+
+Next
+
+print("\n")
+
+Blank line
+
+Again
+
+print("=" * 40)
+
+Output
+
+========================================
+print("CORRUPTED FILES")
+
+Output
+
+CORRUPTED FILES
+
+Again
+
+print("=" * 40)
+
+Output
+
+========================================
+
+Loop
+
+for file in corrupted_files:
+    print(file)
+
+Iteration
+
+file
+
+↓
+
+file2.txt
+
+Print
+
+file2.txt
+
+
+
+
+
+
+
+
+
+Final Output
+
+
+========================================
+VALID FILES
+========================================
+file1.txt
+file3.txt
+
+
+========================================
+CORRUPTED FILES
+========================================
+file2.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Complete Execution Flow (Flowchart)----------------------->
+Program Start
+      │
+      ▼
+Import os
+      │
+      ▼
+INPUT_FOLDER = raw_documents
+      │
+      ▼
+Create empty lists
+(valid_files, corrupted_files)
+      │
+      ▼
+Read folder using os.listdir()
+      │
+      ▼
+Pick first file
+      │
+      ▼
+Create filepath
+      │
+      ▼
+Is it a file?
+      │
+   Yes │ No
+      │
+      ▼
+Open in UTF-8
+      │
+      ▼
+Read file
+      │
+ ┌────┴─────┐
+ │          │
+Success    Error
+ │          │
+ ▼          ▼
+Add to     Add to
+valid      corrupted
+ │          │
+ └────┬─────┘
+      ▼
+Next file
+      │
+      ▼
+All files processed?
+      │
+      ▼
+Print valid files
+      │
+      ▼
+Print corrupted files
+      │
+      ▼
+Program End
+
+
+
+
+Note:   agr  __raw_documents2 ke file me ye karna hai to
+
+
+INPUT_FOLDER = "raw_documents"   ki jagah
+INPUT_FOLDER = "raw_documents2"  karna padega
+jo  ki  p2.py se kr sakte hai usme folder input liya hai

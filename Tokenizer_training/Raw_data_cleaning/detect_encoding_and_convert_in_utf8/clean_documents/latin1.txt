@@ -1,0 +1,20 @@
+
+Hello World!
+My name is ChatGPT.
+This file is created for encoding testing.
+
+English Text
+1234567890
+
+Encoding Test:
+UTF-8
+UTF-16
+UTF-32
+ASCII
+Latin-1
+Windows-1252
+
+Café
+Résumé
+naďve
+Espańa
