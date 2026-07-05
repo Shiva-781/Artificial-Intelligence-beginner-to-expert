@@ -111,3 +111,24 @@ git push origin main
 Agar MP4 repository ka important part hai
 
 To uske liye Git LFS use karna better rahega, especially agar aage aur bhi large videos, datasets, ya AI model files (.pt, .pth, .h5, .bin) add karne wale hain.
+
+
+Git LFS (Git Large File Storage) ek extension hai jo large files (videos, datasets, AI models, ZIP files, etc.) ko normal Git history ke andar store karne ki bajay alag storage mein rakhta hai. Git repository mein sirf ek chhota pointer file rehta hai.
+
+Git LFS kyon use karein?
+
+Agar aap AI/ML projects bana rahe hain, to ye files kaafi badi hoti hain:
+
+.mp4 (videos)
+.zip
+.csv (large datasets)
+.pt, .pth (PyTorch models)
+.h5, .keras
+.onnx
+.bin
+
+Inhe normal Git mein rakhne se:
+
+Repository bahut badi ho jati hai.
+Clone aur pull slow ho jata hai.
+GitHub warnings deta hai (jaise aapko 50 MB wali warning mili).
