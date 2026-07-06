@@ -1,0 +1,75 @@
+Problem
+
+Alag-alag Operating Systems newline ko alag tarike se store karte hain.
+
+Operating System	Newline
+Linux	\n
+Windows	\r\n
+Old Mac	\r
+
+Example:
+
+Windows file
+
+Hello World\r\n
+How are you?\r\n
+Python
+
+Linux file
+
+Hello World\n
+How are you?\n
+Python
+
+Old Mac
+
+Hello World\r
+How are you?\r
+Python
+
+LLMs aur NLP pipelines ke liye generally sabko \n me convert kiya jata hai.
+
+
+
+Why newline="\n"?
+
+Jab file write karte hain:
+
+with open("file.txt", "w", encoding="utf-8", newline="\n")
+
+Python ensure karta hai ki output file me newline character \n hi store ho.
+
+Agar newline parameter na do, to kuch platforms (especially Windows) par Python newline translation kar sakta hai.
+
+Time Complexity
+
+Suppose
+
+n = total characters
+
+replace() poore string par ek pass lagata hai.
+
+Time
+
+O(n)
+
+Space
+
+O(n)
+
+(kyunki Python immutable strings use karta hai.)
+
+Industry Best Practice
+
+Production NLP pipelines me newline normalization ka order generally ye hota hai:
+
+Read Text
+      │
+      ▼
+Replace \r\n → \n
+      │
+      ▼
+Replace \r → \n
+      │
+      ▼
+Save UTF-8 File

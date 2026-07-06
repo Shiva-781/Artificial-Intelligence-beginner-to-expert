@@ -1,0 +1,4 @@
+Hello World
+Python Programming
+OpenAI ChatGPT
+Tokenizer Training

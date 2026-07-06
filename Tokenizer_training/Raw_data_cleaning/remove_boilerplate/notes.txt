@@ -1,0 +1,134 @@
+Boilerplate Kya Hota Hai?
+
+Boilerplate matlab repeated, non-useful text jo har document ya webpage me baar-baar aata hai.
+
+Examples:
+
+Home | About | Contact | Privacy Policy | Terms of Service
+Copyright © 2025 Example Company
+Subscribe to our newsletter
+Cookie Policy
+Accept Cookies
+
+Ye text LLM training ya NLP ke liye usually useful nahi hota.
+
+
+
+
+
+Time Complexity
+
+Simple Rules
+
+O(n)
+
+Regex
+
+O(n)
+
+BeautifulSoup
+
+O(n)
+
+Trafilatura
+
+O(n)
+Industry Comparison
+Method	Accuracy	Industry Use
+Fixed List	⭐⭐	Small Projects
+Regex	⭐⭐⭐	Common
+BeautifulSoup	⭐⭐⭐⭐	Very Common
+Frequency Based	⭐⭐⭐⭐	Large Corpora
+Trafilatura	⭐⭐⭐⭐⭐	Production Web Crawling
+Industry Pipeline
+Raw HTML
+      │
+      ▼
+Remove HTML Tags
+      │
+      ▼
+Remove Header
+      │
+      ▼
+Remove Footer
+      │
+      ▼
+Remove Navigation
+      │
+      ▼
+Remove Ads
+      │
+      ▼
+Remove Cookie Banner
+      │
+      ▼
+Clean Article Text
+Important Note
+
+Boilerplate removal corpus par depend karta hai:
+
+Agar data plain .txt files hai, to fixed rules ya regex kaafi hote hain.
+Agar data websites se crawl kiya gaya hai, to BeautifulSoup, Readability, ya Trafilatura jaise tools use kiye jaate hain.
+Large-scale web corpora (jaise Common Crawl) me boilerplate removal ek dedicated preprocessing step hota hai jo main content ko navigation aur repeated page elements se alag karta hai.
+
+
+
+
+
+
+
+
+Time Complexity
+
+Simple Rules
+
+O(n)
+
+Regex
+
+O(n)
+
+BeautifulSoup
+
+O(n)
+
+Trafilatura
+
+O(n)
+Industry Comparison
+Method	Accuracy	Industry Use
+Fixed List	⭐⭐	Small Projects
+Regex	⭐⭐⭐	Common
+BeautifulSoup	⭐⭐⭐⭐	Very Common
+Frequency Based	⭐⭐⭐⭐	Large Corpora
+Trafilatura	⭐⭐⭐⭐⭐	Production Web Crawling
+Industry Pipeline
+Raw HTML
+      │
+      ▼
+Remove HTML Tags
+      │
+      ▼
+Remove Header
+      │
+      ▼
+Remove Footer
+      │
+      ▼
+Remove Navigation
+      │
+      ▼
+Remove Ads
+      │
+      ▼
+Remove Cookie Banner
+      │
+      ▼
+Clean Article Text
+Important Note
+
+Boilerplate removal corpus par depend karta hai:
+
+Agar data plain .txt files hai, to fixed rules ya regex kaafi hote hain.
+Agar data websites se crawl kiya gaya hai, to BeautifulSoup, Readability, ya Trafilatura jaise tools use kiye jaate hain.
+Large-scale web corpora (jaise Common Crawl) me boilerplate removal ek dedicated preprocessing step hota hai jo main content ko navigation aur repeated page elements se alag karta hai.

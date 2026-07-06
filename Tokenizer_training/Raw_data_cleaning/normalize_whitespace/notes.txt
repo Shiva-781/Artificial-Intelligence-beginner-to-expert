@@ -1,0 +1,39 @@
+Problem
+
+Documents me extra spaces, tabs aur blank lines aa jati hain.
+
+Example:
+
+Hello          World
+
+
+Python      is        awesome.
+
+Ye NLP model ke liye unnecessary noise hai.
+
+Whitespace normalization ka matlab hota hai extra whitespace ko clean karna, bina important information ko unnecessarily destroy kiye.
+
+
+
+
+
+Time Complexity
+
+Suppose document me n characters hain.
+
+Har regex poore text ko ek baar scan karta hai.
+
+Time Complexity
+
+O(n)
+
+Space Complexity
+
+O(n)
+⚠️ Industry Note (Bahut Important)
+
+Whitespace normalization task-dependent hota hai.
+
+Books, articles, blogs: Extra spaces aur blank lines normalize karna safe hota hai.
+Source code (Python, YAML, Makefile): Indentation important hoti hai. Aggressive whitespace normalization code ko break kar sakti hai.
+Poems, legal documents, tables: Extra spaces ya line breaks meaning carry kar sakte hain.

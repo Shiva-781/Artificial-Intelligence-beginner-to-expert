@@ -1,0 +1,2 @@
+Python is an amazing programming language.
+It is used for AI, Machine Learning, Data Science.

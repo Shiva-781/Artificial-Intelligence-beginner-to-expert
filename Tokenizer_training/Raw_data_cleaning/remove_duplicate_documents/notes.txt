@@ -1,0 +1,57 @@
+Problem
+
+Kabhi corpus me ek hi document multiple baar aa jata hai.
+
+Example
+
+article1.txt
+
+Machine Learning is amazing.
+article2.txt
+
+Machine Learning is amazing.
+
+Dono same hain.
+
+LLM training me duplicate documents bias create karte hain aur storage bhi waste karte hain.
+
+
+
+
+
+
+Time Complexity
+
+Suppose
+
+n = number of files
+
+Hash calculation
+
+O(file_size)
+
+Overall
+
+O(total bytes in corpus)
+
+Searching in set
+
+O(1)
+
+Average case.
+
+Industry Pipeline
+Read Document
+      │
+      ▼
+Normalize Text
+      │
+      ▼
+Compute SHA-256 Hash
+      │
+      ▼
+Hash Already Exists?
+      │
+   Yes │ No
+      ▼   ▼
+ Skip   Save Document
